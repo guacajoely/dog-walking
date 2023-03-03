@@ -1,0 +1,28 @@
+/* 3 bugs in CSS */
+/* 1. display: flex; was missing x in details.css*/
+/* 2. @import "details.css"; was missing the s */
+/* 3. added some padding to .detail--column*/
+
+
+
+@import "details.css";
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+
+/*Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: "Comfortaa", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Patua One", serif;
+  letter-spacing: 2px;
+}
+
