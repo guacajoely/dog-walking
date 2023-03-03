@@ -15,6 +15,15 @@ export const RegisteredPets = () => {
 }
 
 
+//CH.8 SHOW WALKER SERVICE AREAS
+
+import { getWalkerCities } from "./database.js"
+const walkerCities = getWalkerCities()
+
+import { getCities } from "./database.js"
+const Cities = getCities()
+
+
 
 //CH.6 NAVIGATING ERD RELATIONSHIPS
 
@@ -50,6 +59,8 @@ document.addEventListener("click",  (clickEvent) => {
                 }
             }
 
+
+
             // INSERT MATCHINGPET AND FOUNDWALKER NAMES INTO ALERT
             window.alert(`${matchingPet.name} is being walked by ${foundWalker.name}`)
 
@@ -60,25 +71,26 @@ document.addEventListener("click",  (clickEvent) => {
 
 
 
-
-
 // //CH.4 CLICKING ON PETS
 
-// document.addEventListener("click",  (clickEvent) => {
 
-//     const itemClicked = clickEvent.target
+const findPet = (clickEvent) => {
 
-//         if (itemClicked.id.startsWith("pet")) {
+    const itemClicked = clickEvent.target
 
-//             const [,petPrimaryKey] = itemClicked.id.split("--")
+        if (itemClicked.id.startsWith("pet")) {
 
-//             for (const petObject of pets) {
+            const [,petPrimaryKey] = itemClicked.id.split("--")
 
-//                 if (petObject.id === parseInt(petPrimaryKey)) {
-//                     window.alert(`${petObject.name} barks at you"`)
-//                 }
-//             }
-//         }
-//     }
-// )
+            for (const petObject of pets) {
+
+                if (petObject.id === parseInt(petPrimaryKey)) {
+                    window.alert(`${petObject.name} barks at you"`)
+                }
+            }
+        }
+    }
+
+document.addEventListener("click", findPet)
+
 

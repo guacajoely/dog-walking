@@ -4,20 +4,24 @@
 // 3. HTML should be an unordered list (NOT OL) so it has bulletpoints like the others
 
 import { getWalkers } from "./database.js"
-
 const walkers = getWalkers()
+
+import { getCities } from "./database.js"
+const cities = getCities()
 
 
 export const CityList = () => {
     
     let citiesHTML = "<ul>"
 
-    for (const walker of walkers) {
-        citiesHTML += `<li>${walker.city}</li>`
+    for (const cityObject of cities) {
+        citiesHTML += `<li>${cityObject.name}</li>`
     }
 
     citiesHTML += "</ul>"
 
     return citiesHTML
 }
+
+
 

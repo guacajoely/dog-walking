@@ -23,56 +23,62 @@ export const Walkers = () => {
 
 }
 
-// Add the following code after the import statement in the Walkers module.
+
+//CH.8 SHOW WALKER SERVICE AREAS
+
+import { getWalkerCities } from "./database.js"
+const walkerCities = getWalkerCities()
+
+import { getCities } from "./database.js"
+const cities = getCities()
+
+
+
 document.addEventListener(
-    "click",  // This is the type of event
+    "click",  
     (clickEvent) => {
-        /*
-            The target of a click event is the most specific HTML element
-            that was clicked by the user.
-        */
+
         const itemClicked = clickEvent.target
 
-        /*
-            Only run the rest of the logic if a walker <li> was clicked
-        */
         if (itemClicked.id.startsWith("walker")) {
 
-            /*
-                Extract the primary key from the id attribute of the list
-                item that you clicked on. Refer back to the code you
-                wrote for each list item. Note the format of the id
-                attribute ("walker--2" if you clicked on the second one).
 
-                This code splits that string apart into an array, and
-                captures the "2" and assigns it to be the value of the
-                `walkerId` variable.
-
-                Splitting a string in JavaScript:
-                    https://www.youtube.com/watch?v=u2ZocmM93yU
-
-                Destructuring in JavaScript:
-                    https://www.youtube.com/watch?v=UgEaJBz3bjY
-            */
             const [,walkerId] = itemClicked.id.split("--")
 
-            /*
-                Now that you have the primary key of a walker object,
-                find the whole object by iterating the walkers array.
-            */
             for (const walkerObject of walkers) {
 
-                /*
-                    Compare the primary key of each walker to the one
-                    you have. As soon as you find the right one, display
-                    the window alert message.
-                */
+   
                 if (walkerObject.id === parseInt(walkerId)) {
-                    window.alert(`${walkerObject.name} services ${walkerObject.city}`)
+                   
+                //FIND WALKERCITIES OBJECT/S (SOMETIMES MULTIPLE)  WITH WALKER ID
+                let relatedCityIDs = []
+                for(const walkerCityObject of walkerCities){
+                    if(walkerCityObject.walkerId === walkerObject.id){
+                        relatedCityIDs.push(walkerCityObject.cityId)
+                    }
+                }
+
+                //FOR EACH CITY ID, LOOP THROUGH CITIES to FIND THE MATCHING CITY NAMES
+                let relatedCities = []
+                let cityString = ''
+                for(const cityID of relatedCityIDs){
+                    for(const cityObject of cities){
+                        if(cityObject.id === cityID){
+                        relatedCities.push(cityObject.name)
+                        }   
+                    }
+                
+                    cityString = relatedCities.join(' and ');
+                }
+
+            // INSERT MATCHINGPET AND FOUNDWALKER NAMES INTO ALERT
+            window.alert(`${walkerObject.name} services ${cityString}`)
+
                 }
             }
         }
     }
 )
+
 
 
