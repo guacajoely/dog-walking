@@ -15,16 +15,6 @@ export const RegisteredPets = () => {
 }
 
 
-//CH.8 SHOW WALKER SERVICE AREAS
-
-import { getWalkerCities } from "./database.js"
-const walkerCities = getWalkerCities()
-
-import { getCities } from "./database.js"
-const Cities = getCities()
-
-
-
 //CH.6 NAVIGATING ERD RELATIONSHIPS
 
 // FIRST WE ALSO NEED TO IMPORT THE ARAY OF WALKERS
@@ -58,6 +48,11 @@ document.addEventListener("click",  (clickEvent) => {
                     foundWalker= walkerObject
                 }
             }
+
+            // //written using .find method
+            // const foundWalker = walkers.find(pet => pet.id === parseInt(petPrimaryKey));
+            // const foundWalkerName = foundWalker.name
+
 
 
 
