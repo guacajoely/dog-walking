@@ -40,52 +40,62 @@ const database = {
     walkers: [{
         id: 1,
         name: "Alphonse Meron",
-        email: "ameron0@mashable.com"
+        email: "ameron0@mashable.com",
+        cityId: 5
     }, 
     {
         id: 2,
         name: "Damara Pentecust",
-        email: "dpentecust1@apache.org"
+        email: "dpentecust1@apache.org",
+        cityId: 3
     }, 
     {
         id: 3,
         name: "Anna Bowton",
-        email: "abowton2@wisc.edu"
+        email: "abowton2@wisc.edu",
+        cityId: 2
     }, 
     {
         id: 4,
         name: "Hunfredo Drynan",
-        email: "hdrynan3@bizjournals.com"
+        email: "hdrynan3@bizjournals.com",
+        cityId: 7
     }, 
     {
         id: 5,
         name: "Elmira Bick",
-        email: "ebick4@biblegateway.com"
+        email: "ebick4@biblegateway.com",
+        cityId: 4
     }, 
     {
         id: 6,
         name: "Bernie Dreger",
-        email: "bdreger5@zimbio.com"
+        email: "bdreger5@zimbio.com",
+        cityId: 8
     }, 
     {
         id: 7,
         name: "Rolando Gault",
-        email: "rgault6@google.com"
+        email: "rgault6@google.com",
+        cityId: 9
     }, 
     {
         id: 8,
         name: "Tiffanie Tubby",
-        email: "ttubby7@intel.com"
+        email: "ttubby7@intel.com",
+        cityId: 6
     }, 
     {
         id: 9,
         name: "Tomlin Cutill",
-        email: "tcutill8@marketwatch.com"
+        email: "tcutill8@marketwatch.com",
+        cityId: 10
     }, 
     {
         id: 10,
         name: "Arv Biddle",
-        email: "abiddle9@cafepress.com"
+        email: "abiddle9@cafepress.com",
+        cityId: 1
     }],
 
     pets: [{
